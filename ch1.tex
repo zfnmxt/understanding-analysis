@@ -1,0 +1,87 @@
+\documentclass[a4paper]{report}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.5in, marginparwidth=2in]{geometry}
+\newenvironment{ex}[1]
+    {\noindent{\large \bf Exercise #1.}}{\newline}
+
+\begin{document}
+\begin{ex}{1.3.2}
+\begin{enumerate}[label=\alph*)]
+\item Let $A = \{0\}$. Then $\inf A = \sup A = 0$.
+\item Impossible. Let the set in question be $\{a_1, a_2, \dots, a_n\}$ and
+  suppose $a_s \geq a_i$ for all $i$ (such an $s$ must exist because the set is
+  finite). Then $a_s$ is the maximum of the set and hence the set has a supremum.
+\item The set $\{\frac{1}{n} \mid n \in \mathbb{Z}\}$ does the trick.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}{1.3.3}
+\begin{enumerate}[label=\alph*)]
+\item Since $A$ is bounded below, $B \neq \varnothing$. Furthermore, since $A$
+  is nonempty, $B$ must have an upper bound. By the Axiom of Completeness,
+  $\sup B$ exists.
+
+  Each $a \in A$ must be an upper bound for $B$ since $b \leq a$. Hence, by part
+  ii) of the definition, $\sup B \leq a$ for each $a$, establishing $\sup B$ as
+  a lower bound of $A$. Part i) of the definition says that for all lower bounds
+  $b \in B$, $b \leq \sup B$. So, we conclude that $\sup B =
+  \inf A$.
+
+\item Part a) shows that any nonempty set that is bounded below has an infimum.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}{1.3.4}
+\begin{enumerate}[label=\alph*)]
+\item By the Axiom of Completeness, $\sup A_i$ exists for each $i$. 
+Let $s_1 = \sup A_2$ and $s_2 = \sup A_2$ and suppose $s_1 \geq s_2$. For each
+$a_1 \in A_1$ and $a_2 \in A_2$, $s_1 \geq a_1$ and $s_2 \geq a_2$. Hence, $s_1
+\geq a_2$ and we conclude that $s_1$ is an upper bound of $A_1 \cup A_2$.
+
+Let $b$ be an upper bound of $A_1 \cup A_2$. Then, $a_1 \leq b$ and $a_2 \leq
+b$. So, $b$ is also an upper bound of $A_1$ and $A_2$. But $s_1 \leq b$ so $\sup
+A_1 \cup A_2 = s_1$. 
+
+Similarly, if $s_2 \geq s_1$, we have $ \sup A_1 \cup A_2 = s_2$. We conclude 
+\begin{align*}
+  \sup(A_1 \cup A_2) = \max(\sup A_1, \sup A_2)
+\end{align*}
+In general,
+\begin{align*}
+ \sup\left(\bigcup_{k=1}^n A_k\right) = \max(\sup A_1, \dots, \sup A_n)
+\end{align*}
+This can be proved by induction on $k$, with the base case ($k = 1$) being
+trivial to prove and the inductive step following directly from part a) (where
+you have to use the fact that $\max (\max (x_1, \dots, x_n), x_{n+1}) = \max
+(x_1, \dots, x_n, x_{n+1})$).
+\item No, because an infinite union of bounded sets can result in an unbounded
+  set, which has no supremum. For example, 
+\begin{align*}
+\bigcup_{k=1}^\infty \{ x \mid \abs{x} \leq k\} = \mathbb{R}
+\end{align*}
+\end{enumerate}
+\end{ex}
+
+\begin{ex}{1.3.7}
+\item Part i) of the definition is satisfied by assumption. For part ii), let
+  $b$ be an upper bound of $A$. Then, for all $a' \in A$, $a' \leq b$ and,
+  crucially, $a \leq b$. Hence, $a = \sup A$.
+\end{ex}
+
+\begin{ex}{1.3.10}
+\begin{enumerate}[label=\alph*)]
+\item By the Axiom of Completeness, $c = \sup A$ exists. Furthermore, since $a <
+  b$ for all $a \in A, b \in B$, we have that $c \leq b$. But
+  $a \leq c$ by definition, so we're done.
+\item 
+\end{enumerate}
+\end{ex}
+\end{document}

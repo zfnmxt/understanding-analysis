@@ -131,4 +131,61 @@ than $c$, which is a contradiction. A similar argument can be made if $c \in B$.
     but neither $\sup A$ nor $\inf B$ exists.
   \end{enumerate}
 \end{ex}
+
+\begin{ex}{1.4.1}
+  \begin{enumerate}[label=\alph*)]
+    \item Let $a = {p}/{q}$ and $b = {m}/{n}$. Then $ab = (pm)/(qn)$. Since
+      $\mathbb{Z}$ is closed under multiplication, $ab \in \mathbb{Q}$. Similar
+      for $a + b$, given that $\mathbb{Z}$ is closed under addition.
+    \item Suppose $a + t \in \mathbb{Q}$. Then,
+      there exists $p, q \in \mathbb{Z}$ such that $a + t = p/q$. Now, since $a
+      = m/n$ for some $m,n \mathbb{Z}$, we have $t = p/q - m/n = (np -
+      mq)/(qn)$. But this contradicts the irrationality of $t$, so $a + t \in
+      \mathbb{I}$. Similar argument for $at \in \mathbb{I}$.
+    \item Nothing. By part (b), $1 - \sqrt{2}, \sqrt{2}/2 -1, \sqrt{2}/{2} + 1
+      \in \mathbb{I}$. But $(1 - \sqrt(2) + \sqrt(2) = 1 \in \mathbb{Q}$ and
+      $(\sqrt{2}/2 -1) + (\sqrt{2}/2 + 1) = \sqrt{2} \in \mathbb{I}$. Similarly,
+      $\sqrt{2}\sqrt{2} \in \mathbb{Q}$ but $(\sqrt{2} + 1)\sqrt{2} = 2 +
+      \sqrt{2} \in \mathbb{I}$. Hence, $\mathbb{I}$ is neither closed under
+      addition nor multiplication.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{1.4.2}
+  First, we show that $s$ is an upper bound of $A$. Let $a' \in A$ and suppose
+  $a' > s$, which implies $a' - s > 0$. By assumption, $s + 1/n \geq a'$ for all
+  $n \in \mathbb{N}$. By the Archimedean Property, there exists $n_0 \in
+  \mathbb{N}$ such that $1/n_0 < a' - s$. But this implies $s + 1/n_0 < a'$,
+  which is a contradiction. Hence, $s \geq a$ for all $a \in A$.
+
+  Now, we want to show that $s$ is a least upper bound. Let $b$ be an upper
+  bound for $A$. By assumption, $s - 1/n < b$ for all $n \in \mathbb{N}$ so $1/n
+  > s - b$. Now, suppose $s > b$. Then $s - b > 0$ and so, by the Archimedean
+  Property, there exists $n_0 \in \mathbb{N}$ with $1/n_0 < s - b$. But this is
+  a contradiction, so $s \leq b$.
+\end{ex}
+
+\begin{ex}{1.4.3}
+Suppose there exists $x \in \cap_{n=1}^{\infty}(0, 1/n)$. Then, $0 < x < 1/n$
+for all $n \in \mathbb{N}$. But, by the Archimedean Property, there exists $n_0
+\in \mathbb{N}$ such that $1/n_0 < x$. This is a contradiction, so
+$\cap_{n=1}^{\infty}(0, 1/n) = \varnothing$.
+\end{ex}
+
+\begin{ex}{1.4.5}
+By Theorem 1.4.3, there exists $r \in \mathbb{Q}$ with $a - \sqrt{2} < r < b -
+\sqrt{2}$. Hence, $a < r + \sqrt{2} < b$. But, by Exercise 1.4.1 part (a), $r +
+\sqrt{2} \in \mathbb{I}$, so we're done.
+\end{ex}
+
+\begin{ex}{1.4.7}
+  Choose $n_0 \in \mathbb{N}$ large enough so that
+  \[ \frac{1}{n_0} < \frac{\alpha^2 - 2}{2\alpha}\]
+  Then
+  \begin{align*}
+  \alpha^2 - \frac{2 \alpha}{n_0} > \alpha^2 - (\alpha^2 - 2) = 2.
+  \end{align*}
+But this contradicts the fact that $\alpha$ is a least upper bound of $T$.
+Hence, we conclude that $\alpha^2 = 2$.
+\end{ex}
 \end{document}

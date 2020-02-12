@@ -81,7 +81,54 @@ you have to use the fact that $\max (\max (x_1, \dots, x_n), x_{n+1}) = \max
 \item By the Axiom of Completeness, $c = \sup A$ exists. Furthermore, since $a <
   b$ for all $a \in A, b \in B$, we have that $c \leq b$. But
   $a \leq c$ by definition, so we're done.
-\item 
+\item First, we need to construct disjoint nonempty sets $A, B$ such that $A
+  \cup B = \mathbb{R}$. Let $B = \{ x \mid x > e \text{ for all } e \in E\}$.
+  Since $E$ is nonempty is bounded above by some $b$, $B$ is nonempty (namely,
+  it must contain $b + 1$). Let $A = B^c = {\{ x \mid x \leq e \text{ for all } e
+  \in E \}}$. 
+
+
+  Now, for $a \in A, b \in B, e \in E$, we have $a \leq e$ and $b > e$. Hence,
+  $a < b$ as required. By the Cut Property, there exists $c \in \mathbB{R}$ such
+  that $a \leq c$ and $c \leq b$. From the definition of $A$, this means that
+  for all $e \in E$, $e \leq c$ such that $c$ is an upper bound on $E$, 
+  satisfying part i) of the definition of the supremum. Additionally, suppose
+  $d$ is an upper bound on $E$. If $d \in A$, then $e \leq d$ and $d
+  \notin B$, meaning that $d < b$. This requires that $d = c$: if $c < d$, then
+  $a \not\leq c$ for all $a$. Otherwise, $d \in B$, from which it follows that
+  $c \leq d.$ We conclude that $c = \sup E$.
+
+\item Let $A = \{ x \in \mathbb{Q} \mid x < \sqrt{2} \}$ and $B = \{x \in
+  \mathbb{Q} \mid x > \sqrt{2}\}$. Clearly, $A \cup B = \mathbb{Q}$ (since
+  $\sqrt{2} \notin \mathbb{Q}$) and $a < b$
+  for all $a \in A$, $b \in B$. By the Cut Property, there exists $c \in
+  \mathbb{Q}$ such that for all $a \in A$, $b \in B$, $a \leq c$ and $b \geq c$.
+  Since $A \cup B = \mathbb{Q}$ and $A$ and $B$ are disjoint, either $c \in A$
+  or $c \in B$. If $c \in A$, then $1 < c < \sqrt{2}$ and
+\begin{align*}
+c < c + \frac{2 - c^2}{2}  < \sqrt{2} 
+\end{align*}
+But this means that there's a rational number (namely $c + (2 - c^2)/2$) in $A$ larger
+than $c$, which is a contradiction. A similar argument can be made if $c \in B$.
 \end{enumerate}
+\end{ex}
+
+\begin{ex}{1.3.11}
+  \begin{enumerate}[label=\alph*)]
+  \item True. Since $A$ and $B$ are nonempty and bounded, $\sup A$ and $\sup B$
+    exist. Since $A \subseteq B$, $a \leq \sup B$ for all $a \in A$, i.e., $\sup
+    B$ is an upper bound for $A$. Additionally, $\sup A \leq b$ for all
+    upper bounds $b$ of $A$. Hence, $\sup A \leq \sup B$.
+
+  \item True. Since $\sup A$ and $\inf B$ exist, $A$ and $B$ must be nonempty
+    and bounded. Suppose there does not exist $c \in \mathbb{R}$ such that $a < c <
+    b$ for all $a \in A, b \in B$. Then, there exists $a' \in A$ and $b' \in B$
+    with $b' \leq a'$. (If $a' < b'$ then $a' < a' + (b'-a')/2 = (a' + b')/2 < b'$ so it must be the case
+    that $b' \leq a'$.) But by assumption $a' \leq \sup A < \inf B \leq b'$,
+    which is a contradiction.
+
+  \item False. Let $A = B = \varnothing$, then the assumption trivially holds
+    but neither $\sup A$ nor $\inf B$ exists.
+  \end{enumerate}
 \end{ex}
 \end{document}

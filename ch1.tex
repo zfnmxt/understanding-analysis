@@ -188,4 +188,69 @@ By Theorem 1.4.3, there exists $r \in \mathbb{Q}$ with $a - \sqrt{2} < r < b -
 But this contradicts the fact that $\alpha$ is a least upper bound of $T$.
 Hence, we conclude that $\alpha^2 = 2$.
 \end{ex}
+
+\begin{ex}{1.5.1}
+Let $n_m = \min \left\{n \in \left(\mathbb{N} \setminus \cup_{i=1}^{m-1} n_i \right)
+\mid f(n) \in A\right\}$ and let $g(m) = f(n_m)$. Now suppose $g(s) = f(n_s) = f
+(n_t) = g(t)$ for some $s, t \in \mathbb{N}$. Because $f$ is 1-1, $n_s = n_t$.
+But if $n_s = n_t$ then $s = t$ because if $s < t$ then $n_s \notin
+\left(\mathbb{N} \setminus \cup_{i=1}^{t-1} n_i \right)$ and a similar argument
+can be made for $t < s$. Hence, $g$ is 1-1. Additionally, $g$ is onto:
+if $a \in A$, there exists some $k \in \mathbb{N}$ with $f(k) \in A$ because
+$f$ is onto. But there there must be some $m'$ such that $k = n_{m'}$ and hence
+$g(m') = f(k) = a$.
+\end{ex}
+
+\begin{ex}{1.5.2}
+NIP is only true for closed intervals on $\mathbb{R}$ and not $\mathbb{Q}$
+(since the proof relies on AoC).
+\end{ex}
+
+\begin{ex}{1.5.3}
+  \begin{enumerate}[label=\alph*)]
+  \item Suppose $A_1$ and $A_2$ are countable and let $B_2 = A_2 \setminus A_1$.
+    Since $B_2 \subseteq A_2$, $B_2$ is countable or finite by Theorem 1.5.7.
+    Additionally, $A_1 \cup A_2 = A_1 \cup B_2$. Let $f_1 : \mathbb{N}
+    \rightarrow A_1$ be 1-1 and onto. If $B_2$ is finite, then $B_2 = \{b_1, b_2,
+    \dots, b_s\}$ and we define
+    \begin{align*}
+      g(n) &= \begin{cases}
+        b_n & \text{$n \leq s$} \\
+        f_1(n - s) & \text{n > s}
+              \end{cases}
+    \end{align*}
+   $g$ is 1-1: if $g(n) = g(m)$ then either $g(n), g(m) \in B_2$ or $g(n), g(m) \in A_1$
+   because $A_1$ and $B_2$ are disjoint. In the former case, we have $b_n = b_m$
+   and conclude $n = m$. In the later case, we have $f_1(n - s) = f_1 (m - s)$
+   and have $n = m$ since $f$ is 1-1.
+
+   $g$ is onto: If $x \in B_2$ there is some $n$ with $b_n = x$. Hence, $g(n) =
+   x$. If $x \in A_1$ then the surjectivity of $f$ gives an $n$ with $f(n) = x$.
+   But then $g(n + s) = f_1(n) = x$.
+
+   If $B_2$ is countable with bijection $f_2: \mathbb{N} \rightarrow B_2$, define
+   
+   \begin{align*}
+     g(n) &= \begin{cases}
+       f_1(n/2) & \text{$n$ even} \\
+       f_2((n - 1)/2) & \text{$n$ odd}
+     \end{cases}
+   \end{align*}
+
+   $g$ is 1-1: if $g(n) = g(m)$ and $g(n),g(m) \in A_1$ we have $f_1(n/2) = f_2(m/2)$
+   and conclude $n = m$. Otherwise, we have $f_2((n - 1)/2) = f_2((m - 1)/2)$
+   and have $n = m$ by the injectivity of $f_2$.
+
+   $g$ is onto: Suppose $x \in A_1$. By the surjectivity of $f_1$, we have $n
+   \in \mathbb{N}$ with $f_1(n) = x$. Hence, $g(2*n) = f_1(n) = x$. For $x \in
+   B_1$, we have some $n$ with $f_2(n) = x$ and have $g(2*n + 1) = f_2(n) = x$
+   (since $2*n + 1$ is always odd).
+
+   The more general statement follows by induction on $m$. The inductive step is
+   essentially the proof above.
+  \item Infinity isn't a number: induction can only be used to prove $\cup_{n=1}^k
+    A_n$ is countable for any $k \in \mathbb{N}$.
+  \item 
+  \end{enumerate}
+\end{ex}
 \end{document}

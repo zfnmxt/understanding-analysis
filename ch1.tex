@@ -10,7 +10,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[margin=1.5in, marginparwidth=2in]{geometry}
 \newenvironment{ex}[1]
-    {\noindent{\large \bf Exercise #1.}}{\newline}
+    {\noindent{\large \bf Exercise #1.}}{\vspace{0.5cm}}
 
 \begin{document}
 \begin{ex}{1.3.2}
@@ -250,7 +250,89 @@ NIP is only true for closed intervals on $\mathbb{R}$ and not $\mathbb{Q}$
    essentially the proof above.
   \item Infinity isn't a number: induction can only be used to prove $\cup_{n=1}^k
     A_n$ is countable for any $k \in \mathbb{N}$.
-  \item 
+  \item  Let $R_1$ be the set of integers appearing in the first row of the
+    array, $R_2$ in the second, and so on.  Clearly, these sets are all disjoint
+    and there are an infinite number of them. Additionally, we'll annotate each
+    integer in each $R_i$ with its sequence number via a pairing. For example, $R_1
+    = \{ (1, 1), (2, 3), (3, 6), (4, 10), \dots\}$.
+
+
+    Let $f_i : \mathbb{N} \rightarrow A_i$ be a bijection for each $A_i$. We define our bijective function $g : \mathbb{N} \rightarrow
+    \cup_{n=1}^{\inf}A_n$ as
+    \begin{align*}
+      g(n) = \begin{cases}
+        f_1(s) & \text{if $(s, n) \in R_1$ for some $s \in \mathbb{N}$} \\
+        f_2(s) & \text{if $(s, n) \in R_2$ for some $s \in \mathbb{N}$} \\
+         & \vdots
+      \end{cases}
+    \end{align*}
+
+  $g$ is 1-1: If $g(n) = g(m)$ then both $g(n),g(m) \in A_i$ for some $i$ since
+  the $A_i$'s are disjoint. Hence, $g(n) = f_i(n) = f_i(m) = g(m)$. But each
+  $f_i$ is 1-1, so $n = m$.
+
+  $g$ is onto: Let $z \in \cup_{n=1}^{\inf}A_n$. Then there is some $i \in
+  \mathbb{N}$ such that $z \in A_i$. But since $f_i$ is onto, there is a $n \in
+  \mathbb{N}$ with $f_i(n) = z$. But since $(n, m) \in R_i$ this means that
+  $g(m) = f_i(n) = z$. 
+\end{enumerate}
+\end{ex}
+\begin{ex}{1.5.6}
+  \begin{enumerate}[label=\alph*)]
+    \item The collection $\{(n -1, n) \mid n \in \mathbb{N}\}$ works with
+      bijective function $f$ given by $f(n) = (n-1, n)$.
+    \item No such collection exists. By Theorem 1.4.3, for any $a, b \in
+      \mathbb{R}$ with $a < b$ there is a $r \in \mathbb{Q}$ with $a < r < b$.
+      Hence, in any non-empty interval $(a, b)$ we have $r \in (a, b)$. Since
+      the collection consists of disjoint intervals, it is easy to construct a
+      bijective function from $\mathbb{Q}$ to the collection. But $\mathbb{Q}$
+      is countable, so by Exercise 1.5.5, the collection must also be countable.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{1.5.11}
+  \begin{enumerate}[label=\alph*)]
+  \item Define $h_g : A' \rightarrow B'$ as $g^{-1}$ restricted to $A'$. That
+    is, $h_g(a') = b'$ if $g(b') = a'$. Such a $b' \in B'$ exists for all $a'
+    \in A$ because $g$ maps $B'$ onto $A'$. $h_g$ is 1-1: if $h_g(a') = h_g(a'')$
+    then there are some $b', b'' \in B'$ such that $g(b') = a'$ and $g(b'') =
+    a''$.  Hence, $b' = h_g(a') = h_g(a'') = b''$ and we conclude that $a' =
+    a''$. $h_g$ is also onto: if $b' \in B'$ then $h_g(g(b')) = b'$. (We're
+    guaranteed $g(b') \in A'$ because $g$ maps $B'$ onto $A'$.)
+
+    Define $h_f : A \rightarrow B$ as $f$ restricted to $A$. $h_f$ is onto and
+    1-1 by assumption.
+
+    Finally, define
+    \begin{align*}
+      h(x) &= \begin{cases}
+        h_g & \text {if $x \in A'$}, \\
+        h_f & \text {if $x \in A$}
+              \end{cases}
+    \end{align*}
+    $h$ is clearly onto and 1-1.
+  \item If $A_1 = \varnothing$, then $g$ is onto and we're done (since $Y \sim
+    X$ implies $X \sim Y$). So, assume $A_1 \neq \varnothing$. We show $A_n \cap
+    A_{n+1} = \varnothing$ for all $n \in \mathbb{N}$ by induction on $n$.
+
+    Base case ($n = 1$): We need to show that $A_1 \cap A_2 = \varnothing$.
+    $A_1 = X\setminus g(Y)$ and $A_2 = g(f(A_1)) = g(f(X \setminus g(Y)))$. $A_1$
+    consists precisely of all the elements that are \emph{not} in $g$'s
+    range--since $A_2 \subseteq g(Y)$ we conclude that $A_1 \cap A_2 =
+    \varnothing$.
+
+    Inductive step: Suppose $A_{k} \cap A_{k+1} = \varnothing$ for all $k < n$.
+    Note that $f(A_k) \cap f(A_{k+1}) = \varnothing$: if $a_k
+    \in A_k$ and $a_{k+1} \in A_{k+1}$ then $f(a_k) \neq f(a_{k+1})$ because $f$
+    is 1-1 and $A_{k}, A_{k+1}$ are disjoint. Similarly, $g(f(A_k)) \cap
+    g(f(A_{k+1})) = \varnothing$ because $g$ is 1-1. But $A_{k+1} = g(f(A_k))$
+    and $A_{k+2} = g(f(A_{k+1}))$, so we're done.
+
+    The fact that the collection $\{f(A_n) \mid n \in \mathbb{N}\}$ follows
+    immediately by the fact that $f$ is 1-1.
+  \item Let $b \in B = \cup_{n=1}^{\infty} f(A_n)$. Then, there exists $n' \in
+    \mathbb{N}$ such that $b \in f(A_{n'})$. But this means there's a $a_{n'}
+    \in A_{n'}$ with $f(a_{n'}) = b$.
   \end{enumerate}
 \end{ex}
 \end{document}

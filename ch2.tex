@@ -13,5 +13,50 @@
     {\noindent{\large \bf Exercise #1.}}{\vspace{0.5cm}}
 
 \begin{document}
-.
+\begin{ex}{2.2.4}
+\begin{enumerate}[label=\alph*)]
+\item $\{-1, 1, -1, 1, -1, \dots\}$
+\item Impossibru. An infinite number of ones requires a ``long-term'' behavior
+  where the sequence features 1. If the sequence doesn't converge to 1, it also
+  has to feature other numbers--but then the sequence is oscillating between 1s
+  and these other numbers and hence must be divergent or these other numbers
+  must get so close to 1 that the sequence converges to 1.
+\item $\{1, 2, 2, 3, 3, 3, 4, 4, 4, 4, \dots\}$
+\end{enumerate}
+\end{ex}
+
+\begin{ex}{2.2.5}
+  \begin{enumerate}[label=\alph*)]
+ \item $\lim a_{n} = 0$. Let $\varepsilon > 0$. Choose $n \in \mathbb{N}$ such
+   that $n \geq 5/\varepsilon + 1$. Then,
+\begin{align*}
+  \left|{a_n - 0}\right| = a_n \leq \left[ \left[ \frac{5}{(5/\varepsilon) + 1} \right] \right] \leq \frac{5}{(5/\varepsilon) + 1}  < \frac{5}{5/\varepsilon} = \varepsilon
+\end{align*}
+as required.
+ \item $\lim a_{n} = 1$. Choose $N \in \mathbb{N}$ such that $N >
+   12/(3\varepsilon -1)$ and let $n \geq \mathbb{N}$. Then,
+\begin{align*}
+  \left| a_n - \frac{4}{3} \right| &<
+\left| \left[ \left[ \frac{12 + 4 \left(12/(3 \varepsilon - 1) \right)}{3\left(12/(3 \varepsilon - 1) \right)} \right] \right] - 1 \right| \\
+&\leq \frac{12 + 4 \left(12/(3 \varepsilon - 1) \right)}{3\left(12/(3 \varepsilon - 1) \right)} - 1 \\
+&= \frac{12 + \left(12/(3 \varepsilon - 1) \right)}{3\left(12/(3 \varepsilon - 1) \right)} \\
+&= \frac{3\varepsilon}{3} \\
+&= \epsilon
+\end{align*}
+as required.
+  \end{enumerate}
+\end{ex}
+\begin{ex}{2.2.6}
+Suppose $\lim a_n = a$ and also that $\lim a_n = b$ with $a \neq b$. Since $a
+\neq b$, there exists $\delta > 0$ such that $| a - b | = \delta$. Now,
+by Definition 2.2.3, for every $\epsilon > 0$, it follows that $|a_n - a | <
+\epsilon$  and $|a_m - b | < \epsilon$ when $n \geq N$ and $m \geq M$ for some
+$M, N$. Choose $\epsilon = \delta/4$ and set $M$ and $N$ appropriately. Now, let
+$R = \max\{M, N\}$ and set $r \geq R$. Then, $|a_r - a| < \delta/4$ and $|a_r -
+b| < \delta/4$. By the triangle inequality,
+\begin{align*}
+|a - b| \leq |a_r -a| + |a_r - b| < \delta/2 = \frac{|a - b|}{2}
+\end{align*}
+which is nonsense because $a - b \neq 0$. By contradiction, $a = b$.
+\end{ex}
 \end{document}

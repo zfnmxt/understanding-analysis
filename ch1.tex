@@ -344,4 +344,74 @@ which is a contradiction. We conclude that $b \in B'$ and thus that $g$ maps
 $B'$ onto $A'$.
   \end{enumerate}
 \end{ex}
+\begin{ex}{1.6.1}
+Suppose $(0,1)$ is uncountable. We'll show that $\mathbb{R}$ is uncountable by
+proving the contrapositive: namely, if $\mathbb{R}$ is countable then $(0,1)$ is
+countable. But $(0, 1) \subseteq \mathbb{R}$ so, by Theorem 1.5.7, $(0,1)$ is
+countable. Now suppose $\mathbb{R}$ is uncountable. Consider the function 
+\begin{align*}
+f(x) = \frac{x - 1/2}{x(x - 1)}
+\end{align*}
+As in Example 1.5.4, a bit of calculus shows the above takes $(0, 1)$ to
+$\mathbb{R}$ in a 1-1 fashion.
+\end{ex}
+
+\begin{ex}{1.6.2}
+\begin{enumerate}[label=\alph*)]
+\item $b_1 \neq a_{11}$ by definition.
+\item $b_2 \neq a_{22}$ by definition. In general, $b_n \neq a_{nn}$ by
+  definition, so $x \neq f(n)$ for all $n \in \mathbb{N}$.
+\item $x$ cannot appear in the table by part (b), which contradicts that $f$ is
+  bijective.
+\end{enumerate}
+\end{ex}
+\begin{ex}{1.6.3}
+\begin{enumerate}[label=\alph*)]
+\item $b \neq \mathbb{Q}$. Every rational number is
+  finite or it repeats: such a $b$ (namely a rational one) cannot differ in
+  every place.
+\item No. The constructed number consists only of 2's and 3's, so this
+  particular point is irrelevant and we can be sure that the table doesn't
+  contain an alternate representation of $b$.
+\end{enumerate}
+\end{ex}
+\begin{ex}{1.6.4}
+Any real number can be encoded as a sequence in $S$. (An inefficient encoding
+could just encode each digit as a 10-digit sequence where, e.g., $1 =
+(1,0,0,0,0,0,0,0,0)$, $2 = (1,2,0,0,0,0,0,0,0)$, etc.) Let $E$ be such an
+encoding function (which clearly has inverse $E'$ and is bijective) and let $f : \mathbb{N} \rightarrow S$ be bijective. Then we
+can construct a bijection $g: \mathbb{N} \rightarrow \mathbb{R}$: $g = f \circ E$.
+\end{ex}
+
+\begin{ex}{1.6.6}
+\begin{enumerate}[label=\alph*)]
+\item \phantom{x}
+  \begin{center}
+  \begin{tabular}[h]{ccc|ccc}
+    $f(a)$ & $\rightarrow$ & $\{a\}$ & $f(a)$ & $\rightarrow$ & $\varnothing$ \\
+    $f(b)$ & $\rightarrow$ & $\{b\}$ & $f(b)$ & $\rightarrow$ & $\{b\}$ \\
+    $f(c)$ & $\rightarrow $& $\{c\}$ & $f(c)$ & $\rightarrow$ & $\{c\}$ 
+  \end{tabular}
+  \end{center}
+\item $g(x) = \{x\}$
+\item Because for all sets $A$, $P(A) > A$ since $2^n > n$ for all $n \in
+  \mathbb{Z^{\geq}}$.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}{1.6.8}
+  \begin{enumerate}[label=\alph*)]
+\item Suppose $a' \in B$. Since $f(a') = B = \{ a \in A \mid a \notin f(a')\}$,
+  $a' \notin B.$
+\item Suppose $a' \notin B$.  Since $f(a') = B = \{ a \in A \mid a \notin f(a')\}$,
+  $a' \in B.$
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{1.6.9}
+$P(\mathbb{N})$ consists of all subsets of $\mathbb{N}$. Such subsets may
+alternatively be interpreted as real numbers in the interval $(0, 1)$: the set
+$\{a_1, a_2,\dots\}$ corresponds to the decimal number $.a_1a_2\dots$ . Such an
+encoding is clearly bijective, so we're done.
+\end{ex}
 \end{document}

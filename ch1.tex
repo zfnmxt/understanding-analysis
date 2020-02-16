@@ -330,9 +330,18 @@ NIP is only true for closed intervals on $\mathbb{R}$ and not $\mathbb{Q}$
 
     The fact that the collection $\{f(A_n) \mid n \in \mathbb{N}\}$ follows
     immediately by the fact that $f$ is 1-1.
-  \item Let $b \in B = \cup_{n=1}^{\infty} f(A_n)$. Then, there exists $n' \in
-    \mathbb{N}$ such that $b \in f(A_{n'})$. But this means there's a $a_{n'}
-    \in A_{n'}$ with $f(a_{n'}) = b$.
+  \item Observe that
+   \begin{align*}
+A' = X \setminus A = X \setminus \cup_{n=1}^{\infty} A_n &= 
+     X \setminus \left(A_1 \cup (\cup_{n=2}^{\infty} A_n) \right) = X \setminus \left( (X \setminus g(Y))  \cup (\cup_{n=2}^{\infty} A_2)\right) \subseteq g(Y)
+\end{align*}
+because $X \setminus (X \setminus g(Y)) = g(Y)$. If $z \in A'$ then there
+is no $n \in \mathbb{Z^{\geq}}$ such that $(gf)^n(a_1) = z$ for all $a_1 \in A_1$. Since $A' \subseteq
+g(Y)$, there eixsts $b \in B$ with $g(b) = z$. What remains to be shown is that
+$b \in B'$. Suppose $b \notin B'$. Then $b \in \cup_{n=1}^{\infty} f(A_n)$. But
+$b = f ((gf)^n a_1)$ for some $a_1 \in A_1$ and $n_0 \in \mathbb{N^{\geq}}$, so $g(b) = (gf)^{n_0+1} (a_1) = z$,
+which is a contradiction. We conclude that $b \in B'$ and thus that $g$ maps
+$B'$ onto $A'$.
   \end{enumerate}
 \end{ex}
 \end{document}

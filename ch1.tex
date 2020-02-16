@@ -378,9 +378,11 @@ $\mathbb{R}$ in a 1-1 fashion.
 \begin{ex}{1.6.4}
 Any real number can be encoded as a sequence in $S$. (An inefficient encoding
 could just encode each digit as a 10-digit sequence where, e.g., $1 =
-(1,0,0,0,0,0,0,0,0)$, $2 = (1,2,0,0,0,0,0,0,0)$, etc.) Let $E$ be such an
-encoding function (which clearly has inverse $E'$ and is bijective) and let $f : \mathbb{N} \rightarrow S$ be bijective. Then we
-can construct a bijection $g: \mathbb{N} \rightarrow \mathbb{R}$: $g = f \circ E$.
+(1,0,0,0,0,0,0,0,0)$, $2 = (1,2,0,0,0,0,0,0,0)$, etc.) Let $E : \mathbb{R}
+\rightarrow S$ be such an
+encoding function (which clearly has inverse $E^{-1}$ and is bijective) and let $f : \mathbb{N} \rightarrow S$ be bijective. Then we
+can construct a bijection $g: \mathbb{N} \rightarrow \mathbb{R}$: $g = E^{-1}
+\circ f$, which is a contradiction. We conclude that $f$ cannot be bijective.
 \end{ex}
 
 \begin{ex}{1.6.6}

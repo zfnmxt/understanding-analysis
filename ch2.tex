@@ -15,13 +15,13 @@
 \begin{document}
 \begin{ex}{2.2.4}
 \begin{enumerate}[label=\alph*)]
-\item $\{-1, 1, -1, 1, -1, \dots\}$
+\item $(-1, 1, -1, 1, -1, \dot)$
 \item Impossibru. An infinite number of ones requires a ``long-term'' behavior
   where the sequence features 1. If the sequence doesn't converge to 1, it also
   has to feature other numbers--but then the sequence is oscillating between 1s
   and these other numbers and hence must be divergent or these other numbers
   must get so close to 1 that the sequence converges to 1.
-\item $\{1, 2, 2, 3, 3, 3, 4, 4, 4, 4, \dots\}$
+\item $(1, 2, 2, 3, 3, 3, 4, 4, 4, 4, \dots)$
 \end{enumerate}
 \end{ex}
 
@@ -59,4 +59,22 @@ b| < \delta/4$. By the triangle inequality,
 \end{align*}
 which is nonsense because $a - b \neq 0$. By contradiction, $a = b$.
 \end{ex}
+
+\begin{ex}{2.2.7}
+  \begin{enumerate}[label=\alph*)]
+\item Only frequently since $(-1)^n = -1$ for all odd $n$.
+\item Eventually implies frequently.
+\item A sequence $(a_n)$ converges to $a$ if, given any
+  $\varepsilon$-neighborhood $V_{\varepsilon} (a)$ of $a$, $(a_n)$ is eventually
+  in $V_\varepsilon (a)$.
+\item No, the sequence $(-2)^n$ contains an infinite number of 2s but is not
+  eventually in the interval (1.9, 2.1). It is, however, frequently in (1.9,
+  2.1). Indeed, any sequence containing an infinite number of 2s must be
+  frequently in (1.9, 2.1). If this were not the case, there would be some $N
+  \in \mathbb{N}$ such that for all $n \geq N$, $a_n \neq 2$. But then there
+  would be at most $N$ 2s in the sequence.
+  \end{enumerate}
+\end{ex}
+
+
 \end{document}

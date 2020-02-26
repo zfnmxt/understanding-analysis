@@ -195,4 +195,102 @@ Clearly, $(y_n)$ converges to 0 even though $(x_n)$ does not converge.
   \end{enumerate}
 \end{ex}
 
+\begin{ex}{2.4.1}
+  \begin{enumerate}[label=\alph*)]
+  \item We'll use induction to show that $x_n \geq x_{n+1}$ for all $n \in
+    \mathbb{N}$.
+
+    Base $(n = 1)$: Clearly, $3 \geq 1/(4-3) = 1$.
+
+    Inductive step: Assume $x_n \geq x_{n+1}$ for all $n \leq K$. Then,
+    \begin{align*}
+      x_K &\leq x_{K+1} \\
+      4 - x_K &\geq 4 - x_{K+1} \\
+      \frac{1}{4-X_K} &\leq \frac{1}{4 - x_{K+1}} \\
+      x_{K+1} &\leq x_{K+2}
+    \end{align*}
+    as required. Hence, $(x_n)$ is decreasing. Since $3 \geq x_n$ for all $n \in
+    \mathbb{N}$, we have that $x_n \geq 0$ and conclude that $|x_n| \leq 3$. By
+    Theorem 2.4.2, $(x_n)$ converges.
+  \item The sequence $(x_{n+1})$ is just $(x_n)$ without the first
+    term--clearly, the converge to the same limit.
+  \item  We have,
+    \begin{align*}
+      \lim x_{n+1} &= \lim \left( \frac{1}{4 - x_n} \right) \\
+                   &= \frac{1}{4 - \lim x_n} \tag{by the Algebraic Limit Theorem} \\
+                   &= \frac{1}{4 - \lim x_{n+ 1}} \\
+    \end{align*}
+    Hence, $\lim{x_n} (4 - \lim {x_n}) = 1$ or $\lim {x_n}^2 - 4 \lim{x_n} + 1 =
+    0$. The roots are $\frac{4 \pm \sqrt{16 - 4}}{2} = 2 \pm
+    \sqrt{3}$. Since $x_{n+1} < x_{n}$ and $x_1 = 3$, we have $\lim x_n = 2 - \sqrt{3}$.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.4.2}
+  \begin{enumerate}[label=\alph*)]
+  \item The argument assumes that the limit exists in the first place (and it
+    does not).
+  \item Yes, because the limit exists since it is monotone and bounded above (by
+    3).
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.4.3}
+
+  \begin{enumerate}[label=\alph*)]
+  \item We have
+    \begin{align*}
+      x_n &= \sqrt{2 + \sqrt{2 + \sqrt{2 + \sqrt{2 + \cdots \sqrt{2 + \sqrt{2}} }}}} \\
+          &<\sqrt{2 + \sqrt{2 + \sqrt{2 + \sqrt{2 + \cdots \sqrt{2 + 2} }}}} \tag{The final $\sqrt{2}$ was replaced with 2} \\
+          &= \sqrt{2 + \sqrt{2 + \sqrt{2 + \sqrt{2 + \cdots 2}}}} \\
+          &= \sqrt{2 + \sqrt{2 + \sqrt{2 + 2}}} \\ 
+          &= 2
+    \end{align*}
+  Hence, $2$ is an upper bound for the sequence. Additionally, clearly $x_{n+1}
+  > x_{n}$ for all $n$, so the sequence is monotone and by Theorem 2.4.2, the
+  sequence must converge and $\lim x_n$ exists. Now, $x_{n+1} = \sqrt{2 +
+    x_{n}}$, So,
+  \begin{align*}
+    \lim x_{n+1}^2 &= \lim(2 + x_{n}) \\
+    \lim x_{n}^2 &= 2 + \lim x_{n} \tag{By the ALT and since $\lim x_{n+1} = \lim x_n$}\\
+    \lim x_n^2 - \lim x_n - 2 = 0 \\
+    (\lim x_n +1)(\lim x_n -2) = 0
+  \end{align*}
+  Hence, $\lim x_n = 2$.
+  \item The $n$-th term in the sequence contains $n$ (nested) square roots and
+    assume $n > 3$. Then,
+    \begin{align*}
+      x_n &= \sqrt{2 \sqrt{2 \sqrt{2} \cdots }} = \prod_{k=1}^{n} 2^{1/{2^k}} = 2^{\sum_{k=1}^n 1/2^k}
+    \end{align*}
+    But $\sum_{k=1}^{\infty} 1/{2^k} = 1$, so that means that the sequence
+    $(1/2^k)$ must be bounded, and, correspondingly that $x_n$ must be bounded.
+    Hence, $\lim x_n$ must exist. Namely, $\lim x_n = 2$.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.4.4}
+
+  \begin{enumerate}[label=\alph*)]
+  \item Suppose that $\mathbb{N}$ is bounded from above and consider the
+    sequence $(n)$. Clearly, $(n)$ is monotone so by the Monotone Congergence
+    Theorem, $\lim n$ exists and we set $\lim n = \alpha$. Now, by the Algebraic
+    Limit Theorem, $\lim (n + 1) = \lim n + 1 = \alpha + 1$. But $\lim n = \lim
+    (n + 1)$, hence $\alpha = \alpha + 1$, which is a contradiction. We conclude
+    that $\mathbb{N}$ is unbounded from above.
+  \item In the proof of Theorem 1.4.1, we consider the sequence $(a_n)$, which
+    is clearly monotone and bounded above by any $b_n$. Hence the limit $\lim
+    a_n = \alpha$ must exist.
+
+    To complete the proof,
+    we need to show that for any convergent increasing sequence $(x_n)$, $x_n
+    \leq \lim x_n$ for all $n$. Suppose there exists an $n_0$ such that $\lim
+    x_n < x_{n_0}$. Since the sequence is increasing, this require that for all
+    $n$, $\lim x_n < x_{n + n_0}$. But $\lim x_n = \lim x_{n + n_0}$ and, by
+    the Order Limit Theorem, $\lim x_n < \lim x_{n + n_0} = \lim_x$, which is a
+    contradiction.
+
+    So, we now have that $a_n \leq \alpha \leq b_n$ for all $n$, as required,
+    and the rest of the proof follows just as it did in the AoC version.
+  \end{enumerate}
+\end{ex}
 \end{document}

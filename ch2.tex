@@ -293,4 +293,115 @@ Clearly, $(y_n)$ converges to 0 even though $(x_n)$ does not converge.
     and the rest of the proof follows just as it did in the AoC version.
   \end{enumerate}
 \end{ex}
+
+\begin{ex}{2.4.5}
+  \begin{enumerate}[label=\alph*)]
+  \item Clearly, $x_1^2 = 4 \geq 2$. For the iterative case, we'll show that $x_{n+1}^2 -2 \geq 0$.
+    \begin{align*}
+      x_{n+1}^2 - 2 &= \left(\frac{1}{2}\left(x_n + \frac{2}{x_n}\right)\right)^2 - 2\\
+                   &= \frac{1}{4}\left(x_n^2 + 4 + \frac{4}{x_n^2}\right) - 2\\
+                   &= \frac{x_n^2}{4} - 1 + \frac{1}{x_n^2} \\
+                   &= \left(\frac{x_n}{2} - \frac{1}{x_n} \right)^2 \\
+                   &\geq 0
+    \end{align*}
+The fact that the sequence is decreasing (i.e., $x_n - x_{n+1} \geq 0$ for all $n \in \mathbb{N}$), now follows:
+    \begin{align*}
+      x_n - x_{n+1} &= x_n - \frac{1}{2}\left(x_n + \frac{2}{x_n}\right) \\
+                   &= \frac{x_n^2 - 2}{2 x_{n}} \\
+                   &\geq 0 \tag{since $x_{n}^2 \geq 2$}
+    \end{align*}
+  By the Monotone Convergence Theorem, the sequence converges and $x = \lim(x_n)$ for some $x$. By the definition of convergence
+  and the Algebraic Limit Theorem,
+\begin{align*}
+ x &= \lim (x_n) \\
+   &= \lim (x_{n+1}) \\
+   &= \lim \left(\frac{1}{2} \left(x_n + \frac{2}{x_n} \right) \right) \\ 
+   &= \frac{1}{2} \lim(x_n) + \frac{1}{\lim(x_n)} \\
+   &= \frac{x}{2} + \frac{1}{x}
+\end{align*}
+this means that $0 = \frac{1}{x} - \frac{x}{2}$ or $x^2 = 2$, which yields that $x = \sqrt{2}$.
+ \item The sequence
+   \begin{align*}
+   x_1 &= c^2  \\
+   x_{n+1} &= \lim \left(\frac{1}{2} \left(x_n + \frac{c}{x_n} \right) \right)
+   \end{align*}
+converges to $\sqrt{c}$, which we can show by following the same steps from part a). Showing that $x_{n+1}^2 \geq c$ for all $n$:
+    \begin{align*}
+      x_{k+1}^2 - c &= \left(\frac{1}{2}\left(x_k + \frac{c}{x_k}\right)\right)^2 - c\\
+                   &= \frac{1}{4}\left(x_k^2 + 2c + \frac{c^2}{x_k^2}\right) - c\\
+                   &= \frac{1}{4}\left(x_k^2 - 2c + \frac{c^2}{x_k^2}\right) \\
+                   &= \frac{1}{4}\left(x_k - \frac{c}{x_k}\right)^2 \\
+                   &\geq 0
+    \end{align*}
+Showing the sequence is decreasing:
+    \begin{align*}
+      x_n - x_{n+1} &= x_n - \frac{1}{2}\left(x_n + \frac{c}{x_n}\right) \\
+                   &= \frac{x_n}{2} - \frac{c}{2x_n} \\
+                   &= \frac{x_n^2 - c}{2 x_{n}} \\
+                   &\geq 0 \tag{since $x_{n}^2 \geq c$}
+    \end{align*}
+And finally, we have that
+
+\begin{align*}
+ x &= \lim (x_n) \\
+   &= \lim (x_{n+1}) \\
+   &= \lim \left(\frac{1}{2} \left(x_n + \frac{c}{x_n} \right) \right) \\ 
+   &= \frac{1}{2} \lim(x_n) + \frac{c}{2\lim(x_n)} \\
+   &= \frac{x}{2} + \frac{c}{2x}
+\end{align*}
+which means that $0 = \frac{c}{2x} - \frac{x}{2}$ or $x^2 = c$, which yields that $x = \sqrt{c}$.
+ \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.4.7}
+  \begin{enumerate}[label=\alph*)]
+    \item  Since $(a_n)$ is bounded there exists an $M > 0$ such that $|a_n| \leq M$ for all $n \in \mathbb{N}$. This means that each $\{a_k : k \geq n\}$ is bounded above by $M$. Now, 
+\[
+\{a_k : k \geq n\} \subseteq \{a_k : k \geq n +1\}
+\]
+so by Exercise 1.3.11 a (which states that for all nonempty, bounded sets $A, B$ with $A \subseteq B$, $\sup A \leq \sup B$), we have
+$y_n \leq y_{n+1}$, so $(y_n)$ is decreasing. Additionally, $(y_n)$ is bounded by $M$ since each is $\{a_k : k \geq n\}$. By the Monotone Convergence Theorem, $(y_n)$ converges.
+
+  \item The \emph{limit inferior} of $(a_n)$, or $\lim \inf a_n$, is defined by
+\[
+  \lim \inf a_n = \lim z_n,
+\]
+where $z_n = \inf\{a_k \mid k \geq n\}$. The argument that $z_n$ converges is virtually identical to the argument in a), except with $\sup$ replaced with $\inf$ and $\leq$ replaced with $\geq$.
+
+\item  For any non-empty, bounded set $A$, $\inf A \leq \inf A$. (Suppose this were not the case: then there would exist a least lower bound $i$ and least upper bound $s$ such that $i \leq a$ for all $a \in A$ and $i > s$. But, $a \leq s$ so $i \leq a \leq s$, which is a contradiction.) Hence, $z_n \leq y_n$ for all $n$---by the Order Limit Theorem, $\lim \inf a_n \leq \lim \sup a_n$.
+
+The inequality is strict for ``oscillating'' sequences, like $((-1)^n)$.
+
+\item ($\Longrightarrow$) Suppose $\lim \inf a_n = \lim \sup a_n = a$. Let $\epsilon > 0$ and choose $n \in N$ such that $|z_n - a| < \epsilon$ and $|y_n -a| < \epsilon$ (such a choice is possible by the convergence of the respective sequences). 
+
+As a quick detour that I thought was relevant to this problem but actually isn't and should be ignored entirely, note that for any bounded and decreasing (and hence convergent) sequence $(b_n)$ with limit $b$, $b_n \geq b$ for all $n$. To prove this, suppose that there exists an $m$ such that $b_m < b$. Then for all $n \geq m$, we have $b_n < b$ since the sequence is decreasing. Since $(b_n)$ is convergent, there exists an $N \in \mathbb{N}$ such that for all $n \geq N$ we have $b - b_n \leq b - b_m$. But for any $n \geq m$ we have
+$b_m \geq b_n$, and hence $b - b_m \leq b - b_n \leq b - b_m$ which requires that $b_n = b_m$. But then $b - b_n$ is a constant and thus must be 0, i.e. $b = b_n$, which is a contradiction. A similar claim for increasing sequences can be proved almost identically.
+
+Since $z_n \leq x \leq y_n$ for all $x \in \{a_k \mid k \geq n \}$, $|x - a| < \epsilon$ (since $z_n -a \leq x - a \leq y_n -a < \epsilon$ and $\epsilon > a - z_n \geq a -x \geq a - y_n$). Hence, $(a_n)$ converges to $a$.
+
+($\Longleftarrow$) Suppose $\lim a_n = a$. Then, for any $\epsilon > 0$, there exists $N$ such that $|a_n - a| < \epsilon$ for all $n \geq N$. But then 
+\begin{align*}
+-\epsilon &< a_n - a < \epsilon \\
+a -\epsilon &< a_n < a + \epsilon 
+\end{align*}
+which means that $a - \epsilon \leq y_n \leq a + \epsilon$ and $a - \epsilon \leq z_n \leq a + \epsilon$. But, then, by the Order Limit Theorem,
+$a - \epsilon \leq y \leq a + \epsilon$ and $a - \epsilon \leq z \leq a + \epsilon$ and so, by Theorem 1.2.6, we conclude that  $\lim \inf a_n = \lim \sup a_n = a$.
+  \end{enumerate}
+
+\end{ex}
+
+\begin{ex}{2.4.9}
+  Suppose $\sum_{n=0}^{\infty} 2^nb_{2^n}$ diverges and consider the partial sums of the sequence $(s_m)$ (corresponding to the sum $\sum_{n=1}^{\infty} b_n$) indexed by $2^k$:
+
+\begin{align*}
+  s_{2^k} &= b_1 + b_2 + \left(b_3 + b_4\right) + \cdots + \left( b_{2^{k-1} +1} + \cdots + b_{2^k}\right) \\
+         &\geq b_1 + b_2 + \left(b_4 + b_4\right) + \cdots + \left( b_{2^{k-1}} + \cdots + b_{2^k}\right)  \tag {since $(b_n)$ is decreasing} \\
+         &= b_1 + b_2 + 2b_4 + \cdots + 2^{k-1}\left( b_{2^{k-1}} + \cdots + b_{2^k}\right)  \\
+         &= \frac{1}{2} \left(2\left(b_1 + b_2 + 2b_4 + \cdots + 2^{k-1}\left( b_{2^{k-1}} + \cdots + b_{2^k}\right)\right)\right) \\
+         &= \frac{1}{2} \left(b_1 + \left(b_1 + 2b_2 + 4b_4 + \cdots + 2^{k}\left( b_{2^{k-1}} + \cdots + b_{2^k}\right)\right)\right) \\
+         &= \frac{1}{2} \left(b_1 + t_k\right)
+\end{align*}
+where $t_k$ is the $k$-th partial sum of $\sum_{n=0}^{\infty} 2^nb_{2^n}$. Now, since $t_k$ is unbounded, $s_{2^k}$ must be unbounded and we conclude that  $\sum_{n=1}^{\infty} b_n$ diverges.
+\end{ex}
+
 \end{document}

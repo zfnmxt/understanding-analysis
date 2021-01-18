@@ -430,4 +430,66 @@ where $t_k$ is the $k$-th partial sum of $\sum_{n=0}^{\infty} 2^nb_{2^n}$. Now, 
   \end{enumerate}
 \end{ex}
 
+\begin{ex}{2.5.2}
+  \begin{enumerate}[label=\alph*)]
+  \item True. The subsequence $(x_2, x_3, \dots)$ is a proper subsequence and converes to the same
+    limit as $(x_n)$.
+  \item True. If $(x_n)$ converged to some $a$, then for any
+    $\varepsilon > 0$, all but a finite number of terms would be
+    contained in $V_\varepsilon(a)$, including all the terms of the
+    divergent subsequence. But this implies that the divergent
+    subsequence converges, which is a contradiction.
+  \item True. Suppose that there exists only a single subsequence of
+    $(x_n)$ which converges. This implies that in the interval halving
+    process described in the proof of Theorem 2.5.5, all but a finite
+    number of points are contained in a single half for every
+    $I_k$--otherwise there would be an interval in which both halves
+    contain an infinite number of points, in which case the process
+    described would yield two convergent subsequences by application
+    to each half.
+
+    But this implies that the sequence converges to to the same value as the subsequence,
+    which contradicts the fact that it's divergent.
+
+  \item True. Suppose $(a_{n_k})$ converges to $a_s$. Then, for any
+    $\varepsilon > 0$, there exists an $K$ such that for all $k > K$,
+    $a_{n_k} \in V_{\varepsilon}(a_s)$. Let $m > n_k$. Then, (taking
+    $(a_n)$ to be decreasing without loss of generality) there exists
+    a $k'$ such that $a_{n_k} \leq a_m \leq a_{n_{k'}}$ since $(a_n)$ is decreasing.
+    But this implies that $a_m \in V_\varepsilon(a_s)$.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.5.3}
+  \begin{enumerate}[label=\alph*)]
+  \item Let
+    \begin{align*}
+      b_1 &= a_1 + \cdots + a_{n_1} \\
+      b_2 &= a_{n_1 + 1} + \cdots + a_{n_2} \\
+          &\quad\vdots
+    \end{align*}
+    Clearly, the partial sums of $(b_n)$ is a subsequence of the partial sums of $(a_n)$. Since the
+    series $(a_n)$ converges, by Theorem 2.5.2, so does the series $(b_n)$.
+  \item The infinite series at the end of Section 2.1 doesn't converge.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.5.4}
+  Let $S \subset \mathbb{R}$ be bounded from above by $M$ and let $a_1 \in S$. Consider $I_1 = [a_1 , M]$ and construct
+  $I_2$ by bisecting $I_1$ and choosing the right half (i.e., $[(M-a_1)/2, M]$) if there exists an $a_2 \in S, [(M-a_1)/2, M]$. Otherwise, choose the left half. Continuing in the fashion, we obtain a series of nested intervals $I_k$, the intersection of which the Nested Interval Property guarantees is non-empty--let $x \in I_k$ for all $k$. Let $a \in S$. If $a \leq a_1$, clearly $x \geq a$. If $a \geq a_1$, then $a \in [a_1, M]$. Consider the largest $k$ for which
+  $a \in I_k$. That is, $a \notin I_{l}$ with $l > k$. The only way this can happen is if $a$ is in the left bisection
+  of $I_k$ and the right bisection is chosen. So, in this case, $x \geq a$. If $a \in I_k$ for all $k$, then $a = x$. This follows since the length of the interval $I_k$ is $(M-a_1)/2^n$ and by the Algebraic Limit Theorem, $\left((M-a_1)/2^n\right) \rightarrow 0$.
+
+  Hence, for any $a \in S$, $x \geq a$ and we've established $x$ as an upper bound for $S$. Now consider an upper bound $y$ for $S$ and suppose $y < x$. This requires that there exists a $k$ such that $y$ is on the left bisection of $I_k$ and $x$ is on the right with $y$ being strictly less than the midpoint. (If this were not the case, then both $x$ and $y$ would be in $I_k$ for all $k$, and we'd have $x = y$.) But the right bisection is only chosen when there exists an $a_k \in S$ in the right bisection, meaning that $y < a_k$, which contradicts the fact that $y$ is an upper bound for $S$. We conclude that $x \leq y$, establishing $x$ as the supremum of $S$ as required.
+\end{ex}
+
+\begin{ex}{2.5.5}
+  By the Bolzano-Weierstrass Theorem, $(a_n)$ contains a convergent subsequence. Now, consider the proof of the Bolzano-Weierstrass Theorem. At each interval $I_k$, we're tasked with bisecting it and choosing a half which contains an infinite number of terms. Suppose both halves of $I_k$ contain an infinite number of terms.
+
+  If there are an infinite number of terms equal to the midpoint $m_k$ of $I_k$, then there exists a bounded sequence converging to $m_k$ and hence, by assumption, all subsequences converge to $m_k$. But this means that, excluding the midpoint, each half only contains a finite number of points--otherwise both the left and right bisections of $I_{k+1}$ will contain an infinite number of points and hence yield bounded sequences converging to different values, which is a contradiction. By a nearly identical argument, both halves of $I_k$ cannot contain an infinite number of terms. Hence, for any $k$, there exists an $N$ such that for all $n > N$, $a_n \in I_k$. Let $\varepsilon > 0$ and choose $N$ such that $a_n \in I_k$ for all $k > \log_2 (M/\varepsilon)$ and $n > N$. Then,
+  \[
+  |I_k| = M/2^k < M/2^{(\log_2(M/\varepsilon))} = \varepsilon
+  \]
+Hence, $|a_n - a| < \varepsilon$ and we have $(a_n) \rightarrow a$.
+\end{ex}
 \end{document}

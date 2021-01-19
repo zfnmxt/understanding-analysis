@@ -492,4 +492,54 @@ where $t_k$ is the $k$-th partial sum of $\sum_{n=0}^{\infty} 2^nb_{2^n}$. Now, 
   \]
 Hence, $|a_n - a| < \varepsilon$ and we have $(a_n) \rightarrow a$.
 \end{ex}
+
+\begin{ex}{2.6.1}
+  Suppose $(x_n) \rightarrow x$. Let $\varepsilon > 0$. Since $(x_n)$ converges, there exists an $N$ such that
+  for all $n,m > N$, $|x_n - x| < \varepsilon/2$ and $|x_m - x| < \varepsilon/$. Then,
+  \begin{align*}
+    |x_n - x_m| &= |x_n - x + x - x_m|  \\
+    &\leq |x_n -x| + |x_m - x| \\
+    &< \epsilon/2 + \epsilon/2 \\
+    &= \epsilon.
+  \end{align*}
+  Hence, $(a_n)$ is a Cauchy sequence.
+\end{ex}
+
+\begin{ex}{2.6.2}
+  \begin{enumerate}[label=\alph*)]
+  \item $(1, -1, 1/2, -1/2, 1/4, -1/4, \dots)$ does the trick.
+  \item Impossible. By Theorem 2.5.2, subsequence of convergent sequences are convergent and by
+    the Cauchy Criterion, a Cauchy sequence is a convergent sequence.
+  \item Impossible. A divergent monotone sequence is unbounded, but
+    Lemma 2.6.3 says that Cauchy sequences are bounded. All
+    subsequences $(a_{n_k})$ of divergent monotone sequences must also
+    diverge, otherwise (assuming an increasing sequence without loss
+    of generality) there would exist an $M$ with $a_{n_k} \leq M$ for
+    all $k$, which implies that $a_n \leq M$ for all $n$, since for
+    any $a_n$, there exists a $k$ such that $a_n \leq a_{n_k}$.
+  \item $(1, 2, 1, 3, 1, 4, 1, 5, \dots)$ does the trick.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.6.7}
+  \begin{enumerate}[label=\alph*)]
+  \item Let $(a_n)$ be monotone and bounded by $M$. With loss of generality, assume $(a_n)$ is increasing. By the
+    Bolzano-Weierstrass Theorem, there exists a convergent subsequence $(a_{n_k})$. By the argument in
+    Exercise 2.6.2 c), $(a_n)$ converges.
+  \item Let $(a_n)$ be bounded by $M$. Consider the interval $I_0 = [-M, M]$. Bisecting this interval,
+    we obtain two halves $[-M, M/2]$ and $[M/2, M]$, at least one of which will contain an infinite number of points
+    in the sequence, which we call $I_1$. $I_k$ is constructed by $k$ such bisections.
+
+    Consider the subsequence $(a_{n_k})$ where $a_{n_k} \in I_k$. Let
+    $\varepsilon > 0$ and choose $K \in \mathbb{N}$ such that $K >
+    1 -\log_2 (M/\varepsilon)$, which we can always do by the
+    Archimedian Property.  then, for all $k, j > K$, we have $M/2^{k-1}
+    < \varepsilon$ and $M/2^{j-1} < \varepsilon$ and hence for any
+    $a_{n_k}, a_{n_j} \in I_K$, we have $|a_{n_k} - a_{n_j}| < \varepsilon$ since
+    $|I_K| = M/2^{K-1}$. Hence, $(a_{n_k})$ is Cauchy and by the Cauchy Criterion, converges.
+
+  \item The Archimedian Property is true on $\mathbb{Q}$ but the Axiom of Completeness does not hold on
+    $\mathbb{R}$, so clearly the Archimedian Property is insufficient to prove the Axiom of Completeness.
+  \end{enumerate}
+\end{ex}
 \end{document}

@@ -542,4 +542,120 @@ Hence, $|a_n - a| < \varepsilon$ and we have $(a_n) \rightarrow a$.
     $\mathbb{R}$, so clearly the Archimedian Property is insufficient to prove the Axiom of Completeness.
   \end{enumerate}
 \end{ex}
+
+\begin{ex}{2.7.1}
+  \begin{enumerate}[label=\alph*)]
+  \item Let $\varepsilon > 0$. Since $(a_n)$ is decreasing and $(a_n)
+    \rightarrow 0$, it's easy to show that $a_n \geq 0$ for all $n$. There exists an $N$ such
+    that for all $n \geq N$, $a_n < \epsilon$ since $(a_n) \rightarrow 0$. Choose $m \geq N$ such
+    that $m$ is odd. Then, since $(a_n)$ is decreasing,
+    \begin{align*}
+    &a_m - a_{m+1} + a_{m+2} - a_{m+3} + a_{m+4} - \dots \pm a_{m+k} \\
+      &\leq \begin{cases}
+        a_m - a_{m+2} + a_{m+2} - a_{m+4} + a_{m+4} \dots + a_{m+k} & \text{if $k$ is even} \\
+        a_m - a_{m+2} + a_{m+2} - a_{m+4} + a_{m+4} \dots - a_{m+k} & \text{if $k$ is odd} \\
+      \end{cases}  \\
+      &= \begin{cases}
+        a_m & \text{if $k$ is even} \\
+        a_m - a_{m+k} & \text{if $k$ is odd} \\
+      \end{cases} \\
+      &< \varepsilon
+    \end{align*}
+    Hence, $(s_n)$ is Cauchy.
+
+  \item Define
+    \begin{align*}
+    I_0 &= [0, s_1] \\
+    I_k &= \begin{cases}
+      [s_k, s_{k-1}] & \text{$k$ even} \\
+      [s_{k-1}, s_k] & \text{$k$ odd}
+           \end{cases}
+    \end{align*}
+    Then
+    \begin{align*}
+    |I_k| &= |s_k - s_{k-1}| = a_k
+    \end{align*}
+    and hence $(|I_k|) \rightarrow 0$. By the Nested Interval Property, there exists
+    an $s \in I_k$ for all $k$. Clearly $s_n \in I_K$ for $n \geq K$. For
+    any $\varepsilon > 0$, you can choose a $k$ such that $|I_k| < \varepsilon$. Hence,
+    $s_n \in V_{\varepsilon}(s)$ for all $n > k$.
+  \item Note,
+    \begin{align*}
+      s_{2n} &= a_1 - a_2 + \dots + a_{2n - 1} - a_{2n} \\
+      s_{2n + 1} &= s_{2n} + a_{2n+1}
+    \end{align*}
+    Now, it follows from part a) that both $s_{2n}$ and $s_{2n+1}$ are
+    increasing. Furthermore, $s_{2n} \leq a_1$ and $s_{2n+1} \leq
+    a_1$. So, both sequences are bounded and increasing and by the
+    Monotone Convergence Theorem, must converge. Additionally, both
+    sequences must converge to the same limit since $s_{2n} - s_{2n+1}
+    = a_{2n+1}$, so $(s_{2n} - s_{2n+1}) \rightarrow 0$. But since
+    $s_n = s_{2(n/2)}$ for even $n$ and $s_n = s_{2((n-1)/2) + 1}$ for
+    odd $n$, $s_n$ must also converge to the same limit as the two
+    subsequences.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.7.2}
+  \begin{enumerate}[label=\alph*)]
+  \item $1/(2^n + n) < 1/2^n$ for all $n \in \mathbb{N}$. $\sum_{n=1}^{\infty} 1/2^n$ converges by Example 2.7.5, so
+    by the Comparison Test, $\sum_{n=1}^{\infty} 1/(2^n+n)$ converges.
+  \item Since $-1 \leq \sin (n) \leq 1$, this series is bounded above by $\sum_{n=1}^{\infty} 1/n^2$, which we know converges. Hence, the series converges.
+  \item Presumably diverges since $(a_n) \rightarrow 1/2$, but it's unlcear to me how to actually show this
+    since the Alternating Series Test says nothing about necessisity.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.7.9}
+  \begin{enumerate}[label=\alph*)]
+  \item Suppose there exists no $N$ such that $n \geq N$ implies $|a_{n+1}| \leq |a_n| r'$.
+    \[
+       \lim \left|\frac{a_{n+1}}{a_n} \right| = r
+       \]
+       means that for any $\varepsilon > 0$, there exists an $N$ such that $n \geq N$ implies
+       \[
+       \left| \left|\frac{a_{n+1}}{a_n} \right| - r \right| < \varepsilon
+       \]
+       so
+       \[
+       - (\varepsilon + r) < \left|\frac{a_{n+1}}{a_n} \right| < \varepsilon + r
+       \]
+       which we relax to obtain
+       \[
+       \left|\frac{a_{n+1}}{a_n} \right| \leq \varepsilon + r
+       \]
+       Since $0 \leq r < r' < 1$, we can choose $\varepsilon = r' - r$ and obtain
+       \[
+       \left|\frac{a_{n+1}}{a_n} \right| \leq r'
+       \]
+       as required.
+     \item $0 < r' < 1$, so this converges by Example 2.7.5.
+     \item From part a), there exists an $N$ such that for all $n \geq N$, we have
+       $|a_{n+1}| \leq |a_n|r'$. But then
+       \[
+          |a_{N+m}| \leq |a_{N+(m-1)}|r' \leq |a_{N+(m-2)}|(r')^2 \leq \dots \leq |a_N|(r')^m
+          \]
+       Hence, by the Comparison Test and part b) and the Absolute Convergence Test, the series converges.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.7.13}
+  \begin{enumerate}[label=\alph*)]
+  \item \begin{align*}
+    \sum_{k=1}^{n} x_ky_k &= s_ny_{n+1} - s_{0}y_0 + \sum_{k=1}^{n}s_k(y_k - y_{k+1}) \\
+                       &= s_ny_{n+1} + \sum_{k=1}^{n}s_k(y_k - y_{k+1}) \\
+  \end{align*}
+  \item Since $(s_n) \rightarrow s$, there exists a $B \geq 0$ such that $s_n \leq B$ for all $n$. (Since convergent sequences
+    are bounded.) Additionally, $(y_k)$ is decreasing. Hence,
+    \begin{align*}
+      s_k (y_k - y_{k+1}) \leq
+      B (y_k - y_{k+1}) \leq
+      B (y_1 - y_{k+1}) 
+    \end{align*}
+    The series $\sum B (y_1 - y_{k+1})$ converges by the Algebraic Limit Theorem and hence
+    $\sum s_k (y_k - y_{k+1})$ converges absolutely, since $y_k - y_{k+1} \geq 0$, by the Comparison Test.
+
+    This immediately leads to a proof of Abel's Test by the Algebraic Limit Theorem.
+  \end{enumerate}
+\end{ex}
 \end{document}

@@ -658,4 +658,102 @@ Hence, $|a_n - a| < \varepsilon$ and we have $(a_n) \rightarrow a$.
     This immediately leads to a proof of Abel's Test by the Algebraic Limit Theorem.
   \end{enumerate}
 \end{ex}
+
+\begin{ex}{2.8.1}
+  We have
+  \begin{align*}
+    s_{nn} = \sum_{j=1}^{n} \left(\frac{-1}{2^{j-1}}\right) = \sum_{k=0}^{n} (-1) (\frac{1}{2})^k
+  \end{align*}
+  which is a geometri series and hence converges to -2, which matches the iterated limit
+  that summed the columns first.
+\end{ex}
+
+\begin{ex}{2.8.2}
+  By the absolute convergence test, for any $i \in \mathbb{N}$, $\sum_{j=1}^{\infty} |a_{ij}|$ converges to
+  some number $c_i$. Now, $\sum_{j=1}^{\infty} a_{ij} \leq \sum_{j=1}^{\infty} |a_{ij}|$ so $c_i \leq b_i$ for all $i$.
+  By the Comparison Test, $\sum_{i=1}^{\infty} c_i$ converges and we conclude that the iterated series
+  $\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij}$ converges.
+\end{ex}
+
+\begin{ex}{2.8.3}
+  \begin{enumerate}[label=\alph*)]
+  \item Since $\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|$
+    converges, for each $i \in \mathbb{N}$, $\sum_{j=1}^{\infty}
+    |a_{ij}|$ converges to some $b_i$ and $\sum_{i=1}^{\infty} b_i$ converges to some $b$.
+
+    Now, since $|a_{i,j}| \geq 0$ we have
+    \[
+      \sum_{j=1}^n |a_{ij}| \leq b_i
+      \]
+      for each $i$. Hence,
+      \[
+      \sum_{i=1}^n \sum_{j=1}^n |a_{i,j}| \leq 
+      \sum_{i=1}^n \sum_{j=1}^n b_i \leq
+      b
+      \]
+      and we conclude that $(t_{nn})$ is bounded by $b$. But $(t_{nn})$ is increasing, and hence it must
+      converge.
+    \item
+      Since $(t_{nn})$ is Cauchy, for any $\varepsilon > 0$, there exists an $N$ such that for all $m, n \geq N$,
+      \begin{align*}
+        \left|t_{nn} - t_{mm}\right| &< \varepsilon \\
+      \end{align*}
+      Without loss of generality, suppose $n \geq m$. Then, 
+      \begin{align*}
+        \left|s_{nn} - s_{mm}\right|
+        &= \left|\sum_{i=1}^n \sum_{j=1}^n a_{i,j} - \sum_{i=1}^m \sum_{j=1}^m a_{i,j}\right| \\
+        &= \left| \sum_{i=m+1}^n \sum_{j=1}^n a_{i,j} + \sum_{i=1}^m \sum_{j=m+1}^n a_{i,j} \right| \\
+        &\leq \left| \sum_{i=m+1}^n \sum_{j=1}^n |a_{i,j}| + \sum_{i=1}^m \sum_{j=m+1}^n |a_{i,j}| \right| \\
+        &= \left| t_{nn} - t_{mm} \right| \\
+        &< \varepsilon
+      \end{align*}
+      showing that $(s_{nn})$ is Cauchy as well.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}{2.8.4}
+  \begin{enumerate}[label=\alph*)]
+  \item Let $\varepsilon > 0$. Suppose there does not exist an $N_1$
+    such that $m, n \geq N_1$ implies that $B - \varepsilon/2 <
+    t_{mn}$. Then, for any choice of $N_1$, there exists $m, n \geq
+    N_1$ such that $B - \varepsilon/2 \geq t_{mn}$. Let $m_1, n_1$ be
+    arbitrary and consider $t_{m_1n_1}$. There exists $m_2 \geq m_1$
+    and $n_2 \geq n_1$ such that $B -\varepsilon/2 \geq t_{m_2n_2}$.
+    Furthermore, since $(t_{mn})$ is increasing, $t_{m_2n_2} \geq t_{m_1n_1}$.
+    Hence,
+    \[
+       B-\varepsilon/2 \geq t_{m_1n_1}
+       \]
+       But this means that $B -\varepsilon/2$ is an upper bound of $(t_{mn})$, which
+       is a contradiction.
+     \item We have
+       \begin{align*}
+         | s_{mn} - S | &= | s_{mn} - s_{nn} + s_{nn} - S| \\
+         &\leq | s_{mn} - s_{nn} | + | s_{nn} - S| \\
+         &\leq \left| \sum_{m=n+1}^{\infty} \sum_{n=1}^{\infty} a_{ik} \right| + |s_{nn} - S| \\ \tag{assuming $m \geq n$}
+         &\leq \left| \sum_{m=n+1}^{\infty} \sum_{n=1}^{\infty} |a_{ik}| \right| + |s_{nn} - S| \\
+         &\leq \left| t_{mn} - t_{nn} \right| + |s_{nn} - S| \\
+       \end{align*}
+
+       Now, from part a), we have for all $m \geq n \geq N_1$. So,
+       \[
+         B - \frac{\varepsilon}{2} < t_{nn} \leq t_{mn} \leq B
+         \]
+         hence
+       \begin{align*}
+         B - \frac{\varepsilon}{2} - t_{nn} &< 0 \leq t_{mn} - t_{nn} \leq B - t_{nn} \\
+         B - \frac{\varepsilon}{2} - B < \leq t_{mn} - t_{nn} \leq B - B + \frac{\varepsilon}{2} \\
+         \frac{\varepsilon}{2}  < t_{mn} - t_{nn} \leq  \frac{\varepsilon}{2} \\
+       \end{align*}
+       Now, since $(s_{nn}) \rightarrow S$, there exists $n \geq N_2$ such that $|s_{nn} - S| < \varepsilon/2$.
+       Set $N = \max\{N_1, N_2\}$ and let $m \geq n > N$. Then,
+       \begin{align*}
+         | s_{mn} - S | &\leq \left| t_{mn} - t_{nn} \right| + |s_{nn} - S| \\
+         &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} \\
+         &< \varepsilon
+       \end{align*}
+  \end{enumerate}
+\end{ex}
 \end{document}
+
+
